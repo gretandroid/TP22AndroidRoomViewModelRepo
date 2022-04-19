@@ -19,9 +19,16 @@ public class AppRepository {
     private AppDatabase database;
     private Executor executor = Executors.newSingleThreadExecutor();
 
-    public AppRepository(Context context) {
+    private AppRepository(Context context) {
         database = AppDatabase.getInstance(context);
         mPersons = getAllPersons();
+    }
+
+    public static AppRepository getInstance(Context context) {
+        if (instance == null) {
+            instance = new AppRepository(context);
+        }
+        return instance;
     }
 
     private LiveData<List<PersonneEntity>> getAllPersons() {
