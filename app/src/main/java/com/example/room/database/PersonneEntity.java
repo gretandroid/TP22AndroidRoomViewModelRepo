@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity(tableName="person")
+@Entity(tableName = "person")
 public class PersonneEntity {
 
     @PrimaryKey(autoGenerate = true)
@@ -19,13 +19,13 @@ public class PersonneEntity {
     public PersonneEntity() {
     }
 
+    @Ignore
     public PersonneEntity(int id, Date date, String nom) {
         this.id = id;
         this.date = date;
         this.nom = nom;
     }
 
-    @Ignore
     public PersonneEntity(Date date, String nom) {
         this.date = date;
         this.nom = nom;

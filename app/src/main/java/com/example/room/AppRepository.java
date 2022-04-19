@@ -1,6 +1,7 @@
 package com.example.room;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -36,11 +37,11 @@ public class AppRepository {
         return database.personneDao().getAll();
     }
 
-    public void addAllPersons(List<PersonneEntity> persons){
+    public void addAllPersons(List<PersonneEntity> persons) {
         executor.execute(() -> database.personneDao().insertAll(persons));
     }
 
-    public void deleteAllPersons(){
+    public void deleteAllPersons() {
         executor.execute(() -> database.personneDao().deleteAll());
     }
 }
