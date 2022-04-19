@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 this, persons -> {
                     //on doit utiliser une collection
                     //qui wrappe les données pour manipuler le view model
-                    //on commence par sans le clear le notify ne prend
+                    //on commence par la clear le notify ne prend
                     // en compte les modifications sur l'adapter
                     personsData.clear();
                     personsData.addAll(persons);
