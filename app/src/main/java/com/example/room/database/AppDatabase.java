@@ -9,7 +9,7 @@ import androidx.room.TypeConverters;
 
 @Database(entities = {PersonneEntity.class}, version = 1)
 @TypeConverters(DateConverter.class)
-public abstract class AppDatabase extends RoomDatabase{
+public abstract class AppDatabase extends RoomDatabase {
     public static final String DATABASE_NAME = "AppDatabase.db";
     // ce variable est une instance de base de donnée qui est partagé
     // par plusieurs thread, elle doit être toujours en mémoire, jamais
@@ -27,7 +27,9 @@ public abstract class AppDatabase extends RoomDatabase{
                     instance = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class,
                             DATABASE_NAME)
+                            //execution dans le meme thread
 //                            .allowMainThreadQueries()
+                            //pour detruire la DB lors de changement de version
 //                            .fallbackToDestructiveMigration()
                             .build();
                 }
